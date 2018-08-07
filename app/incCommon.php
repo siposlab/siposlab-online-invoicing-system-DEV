@@ -362,7 +362,7 @@
 			if(!headers_sent()) header('HTTP/1.0 403 Forbidden');
 			redirect("index.php?loginFailed=1");
 			exit;
-		}elseif((!$_SESSION['memberID'] || $_SESSION['memberID']==$adminConfig['anonymousMember']) && $_COOKIE['online_inovicing_system_rememberMe']!=''){
+		}elseif((!$_SESSION['memberID'] || $_SESSION['memberID']==$adminConfig='anonymousMember') && $_COOKIE['online_inovicing_system_rememberMe']!=''){
 			$chk=makeSafe($_COOKIE['online_inovicing_system_rememberMe']);
 			if($username=sqlValue("select memberID from membership_users where convert(md5(concat(memberID, passMD5)), char)='$chk' and isBanned=0")){
 				$_SESSION['memberID']=$username;
