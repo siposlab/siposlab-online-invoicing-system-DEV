@@ -33,6 +33,10 @@
 			case 'filters':
 				$header='';
 				break;
+
+            default:
+                break;
+
 		}
 
 		return $header;
