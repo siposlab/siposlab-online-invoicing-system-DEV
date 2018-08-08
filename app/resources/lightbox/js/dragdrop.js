@@ -847,7 +847,7 @@ var Sortable = {
       if (!match) continue;
 
       var child = {
-        id: encodeURIComponent(match ? match[1] : null),
+        id: encodeURIComponent(),
         element: element,
         parent: parent,
         children: [],
