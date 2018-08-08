@@ -715,7 +715,7 @@ Effect.SlideUp = function(element) {
     scaleX: false,
     scaleMode: 'box',
     scaleFrom: 100,
-    scaleMode: {originalHeight: elementDimensions.height, originalWidth: elementDimensions.width},
+    scaleMode2: {originalHeight: elementDimensions.height, originalWidth: elementDimensions.width},
     restoreAfterFinish: true,
     afterSetup: function(effect) {
       effect.element.makePositioned();
