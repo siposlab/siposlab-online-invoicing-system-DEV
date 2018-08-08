@@ -3,7 +3,7 @@
 
 	define('CURRENCY_TITLE', "US Dollars");
 	define('CURRENCY_SYMBOL', "USD");
-	
+
 	function login_ok($memberInfo, &$args){
 
 		return '';
@@ -34,15 +34,15 @@
 	function print_invoice_query($id){
 		$query = sql("
 					SELECT
-						C.name, 
+						C.name,
 						I.date_due, I.code, I.subtotal, I.discount, I.tax, I.total,
-						T.item_description, 
-						IT.unit_price, IT.qty, IT.price 
-					FROM 
-						clients AS C INNER JOIN 
-						invoices AS I ON C.id = I.client INNER JOIN 
-						invoice_items AS IT ON IT.invoice = I.id INNER JOIN 
-						items AS T ON T.id = IT.item 
+						T.item_description,
+						IT.unit_price, IT.qty, IT.price
+					FROM
+						clients AS C INNER JOIN
+						invoices AS I ON C.id = I.client INNER JOIN
+						invoice_items AS IT ON IT.invoice = I.id INNER JOIN
+						items AS T ON T.id = IT.item
 					WHERE I.id = '{$id}'
 					GROUP BY T.id", $error);
 
@@ -77,12 +77,12 @@
 	function update_item_latest_price($item_id){
 		$item_id = max(0, intval($item_id));
 		$last_price = get_item_price($item_id);
-		
+
 		sql("update items set unit_price='{$last_price}' where id='{$item_id}'", $eo);
-		
+
 		return $last_price;
 	}
-	
+
 	function get_item_price($item_id, $date = false){
 		if($date === false) $date = date('Y-m-d');
 		$item_id = max(0, intval($item_id));
@@ -91,7 +91,7 @@
 		if(!$last_price){
 			return sqlValue("select unit_price from items where id='{$item_id}'");
 		}
-		
+
 		return $last_price;
 	}
 
@@ -99,17 +99,17 @@
 	function get_products(){
 		static $products = false;
 		if($products !== false) return $products;
-		
+
 		$products = array();
 		$res = sql("select * from products order by id", $eo);
 		while($row = db_fetch_assoc($res)){
 			$products[] = $row;
 		}
-		
+
 		return $products;
 	}
-	
-	/* 
+
+	/*
 		takes array like this:
 		[
 			['koko' => 123, 'lolo' => 'abc'],
@@ -121,13 +121,13 @@
 	*/
 	function array_flatten($arr, $key){
 		if(!is_array($arr)) return array();
-		
+
 		$fa = array(); /* flat array to return */
 		foreach($arr as $sa){
 			if(!isset($sa[$key])) continue;
 			$fa[] = $sa[$key];
 		}
-		
+
 		return $fa;
 	}
 
@@ -155,7 +155,7 @@
 		for ($i = 0; $i < count($num_levels); $i++) {
 			$levels--;
 			$hundreds = (int) ($num_levels[$i] / 100);
-			$hundreds = ($hundreds ? ' ' . $list1[$hundreds] . ' Hundred' . ( $hundreds == 1 ? '' : '' ) . ' ' : '');
+			$hundreds = ($hundreds ? ' ' . $list1[$hundreds] . 
 			$tens = (int) ($num_levels[$i] % 100);
 			$singles = '';
 			if ($tens < 20) {
@@ -180,7 +180,7 @@
 	 */
 	function report_actions(){
 		global $Translation;
-		
+
 		ob_start();
 		?>
 		<a href="reports.php" class="btn btn-info hidden-print btn-lg" role="button"><i class="glyphicon glyphicon-chevron-left"></i> <?php echo $Translation['Back']; ?></a>
@@ -188,10 +188,10 @@
 		<?php
 		$out = ob_get_contents();
 		ob_end_clean();
-		
+
 		return $out;
 	}
-	
+
 	function restrict_access($table = 'invoices'){
 		$from_chk = get_sql_from($table);
 		if(!$from_chk){
