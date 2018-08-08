@@ -2502,9 +2502,9 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
     }
   }
 
-  if (HAS_UNIQUE_ID_PROPERTY) {
+  
     purgeCollection = purgeCollection_IE;
-  }
+
 
 
   function purge(element) {
