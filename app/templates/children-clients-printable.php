@@ -13,7 +13,7 @@
 			Page: <?php echo addslashes($parameters['Page']); ?>,
 			SortBy: <?php echo ($parameters['SortBy'] === false ? '""' : $parameters['SortBy']); ?>,
 			SortDirection: '<?php echo $parameters['SortDirection']; ?>',
-			AutoClose: <?php echo ($config['auto-close'] ? 'true' : 'false'); ?>
+			AutoClose: <?php echo $config['auto-close'] ? 'true' : 'false'; ?>
 		};
 		var panelID = "panel_<?php echo "{$parameters['ChildTable']}-{$parameters['ChildLookupField']}"; ?>";
 		var mbWidth = window.innerWidth * 0.9;
