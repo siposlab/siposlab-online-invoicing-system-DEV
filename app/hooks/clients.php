@@ -69,6 +69,9 @@
 			case 'filters':
 				$footer='';
 				break;
+
+            default:
+                break;
 		}
 
 		return $footer;
