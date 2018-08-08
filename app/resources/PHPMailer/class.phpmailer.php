@@ -280,11 +280,6 @@ class PHPMailer
      */
     public $Username = '';
 
-    /**
-     * SMTP password.
-     * @var string
-     */
-    public $Password = '';
 
     /**
      * SMTP auth type.
