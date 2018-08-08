@@ -69,7 +69,7 @@ if(ie4||ie5||ps>=20020823) {
 else { 
 	ww = "window.innerWidth"
 	wh = "window.innerHeight"
-	evlh = eval(wh)
+	evlh = (wh)
 	evlw = eval(ww)
 	sbw=15
 }	

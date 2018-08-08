@@ -2502,7 +2502,7 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
     }
   }
 
-  
+
     purgeCollection = purgeCollection_IE;
 
 
