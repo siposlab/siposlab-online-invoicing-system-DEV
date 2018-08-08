@@ -2,5 +2,5 @@ projectKey=invoiceprojectgithub
 serverUrl=http://localhost:9000
 serverVersion=7.2.1.14109
 dashboardUrl=http://localhost:9000/dashboard?id=invoiceprojectgithub
-ceTaskId=AWUaHdyT-ihgKuc96eqY
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWUaHdyT-ihgKuc96eqY
+ceTaskId=AWUaQBsa-ihgKuc96eqZ
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWUaQBsa-ihgKuc96eqZ

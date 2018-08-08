@@ -663,7 +663,7 @@ function datePicker(options) {
                 if(!o.staticPos) {
                         document.getElementsByTagName('body')[0].appendChild(o.div);
                 } else {
-                        elem = o.getElem();
+                        let elem = o.getElem();
                         if(!elem) {
                                 o.div = null;
                                 return;
@@ -1243,7 +1243,7 @@ datePickerController = function() {
                 };
         };
         var destroy = function() {
-                for(dp in datePickers) {
+                for(let dp in datePickers) {
                         if(!datePickers[dp].created) continue;
                         datePickers[dp].destroy();
                         datePickers[dp] = null;
