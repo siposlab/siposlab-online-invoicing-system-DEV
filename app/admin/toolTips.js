@@ -122,7 +122,7 @@ function stm(t,s) {
 				close()
 			}
 		}
-		else eval(obj+"innerHTML=txt")
+		else obj["innerHTML=txt"]
 		tbody = {
 			Pos:s[10].toLowerCase(),
 			Xpos:s[18],
