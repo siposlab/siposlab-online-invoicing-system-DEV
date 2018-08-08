@@ -29,7 +29,7 @@
 	if(isset($_POST['saveChanges'])){
 		// validate data
 		foreach ($tables as $t => $tc){
-			eval(" 
+			eval("
 					\${$t}_insert = checkPermissionVal('{$t}_insert');
 					\${$t}_view = checkPermissionVal('{$t}_view');
 					\${$t}_edit = checkPermissionVal('{$t}_edit');
@@ -71,7 +71,6 @@
 		$vUpd = $tableName . "_edit";
 		$vDel = $tableName . "_delete";
 		$vVue = $tableName . "_view";
-		$$vIns = $row['allowInsert'];
 		$$vUpd = $row['allowEdit'];
 		$$vDel = $row['allowDelete'];
 		$$vVue = $row['allowView'];
@@ -135,7 +134,7 @@
 			}else{
 				?>
 					<button type="submit" name="resetPermissions" value="1" class="btn btn-warning btn-lg reset-permissions">
-						<i class="glyphicon glyphicon-refresh"></i> 
+						<i class="glyphicon glyphicon-refresh"></i>
 						<?php echo html_attr($Translation['reset member permissions']); ?>
 					</button>
 				<?php
