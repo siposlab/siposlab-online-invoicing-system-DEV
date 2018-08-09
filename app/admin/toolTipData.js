@@ -4,7 +4,7 @@ var spacer="&nbsp; &nbsp; &nbsp; ";
 // email notifications to admin
 notifyAdminNewMembers0Tip=["", spacer+"No email notifications to admin."];
 notifyAdminNewMembers1Tip=["", spacer+"Notify admin only when a new member is waiting for approval."];
-notifyAdminNewMembers2Tip=["", spacer+"Notify admin for all new sign-ups."];
+let notifyAdminNewMembers2Tip=["", spacer+"Notify admin for all new sign-ups."];
 
 // visitorSignup
 var visitorSignup0Tip=["", spacer+"If this option is selected, visitors will not be able to join this group unless the admin manually moves them to this group from the admin area."];
