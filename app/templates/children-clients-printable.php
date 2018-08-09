@@ -1,4 +1,4 @@
-<?php if(!isset($Translation)) die('No direct access allowed.'); ?>
+<?php if(!isset($Translation)){ die('No direct access allowed.');} ?>
 <?php $current_table = 'clients'; ?>
 <?php
 	$cleaner = new CI_Input();
