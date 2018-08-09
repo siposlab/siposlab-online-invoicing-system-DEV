@@ -42,15 +42,6 @@ var Droppables = {
     this.drops.push(options);
   },
 
-  findDeepestChild: function(drops) {
-    deepest = drops[0];
-
-    for (i = 1; i < drops.length; ++i)
-      if (Element.isParent(drops[i].element, deepest.element))
-        deepest = drops[i];
-
-    return deepest;
-  },
 
   isContained: function(element, drop) {
     var containmentNode;
@@ -296,28 +287,6 @@ var Draggable = Class.create({
     return([
       parseInt(Element.getStyle(this.element,'left') || '0'),
       parseInt(Element.getStyle(this.element,'top') || '0')]);
-  },
-
-  initDrag: function(event) {
-    if(!Object.isUndefined(Draggable._dragging[this.element]) &&
-      Draggable._dragging[this.element]) return;
-    if(Event.isLeftClick(event)) {
-      // abort on form elements, fixes a Firefox issue
-      var src = Event.element(event);
-      if((tag_name = src.tagName.toUpperCase()) && (
-        tag_name=='INPUT' ||
-        tag_name=='SELECT' ||
-        tag_name=='OPTION' ||
-        tag_name=='BUTTON' ||
-        tag_name=='TEXTAREA')) return;
-
-      var pointer = [Event.pointerX(event), Event.pointerY(event)];
-      var pos     = this.element.cumulativeOffset();
-      this.offset = [0,1].map( function(i) { return (pointer[i] - pos[i]) });
-
-      Draggables.activate(this);
-      Event.stop(event);
-    }
   },
 
   startDrag: function(event) {
