@@ -71,7 +71,7 @@
 		$vUpd = $tableName . "_edit";
 		$vDel = $tableName . "_delete";
 		$vVue = $tableName . "_view";
-		$$vUpd = $row['allowEdit'];
+		$vUpd = $row['allowEdit'];
 		$$vDel = $row['allowDelete'];
 		$$vVue = $row['allowView'];
 	}
