@@ -4,10 +4,11 @@
 	$cleaner = new CI_Input();
 	$cleaner->charset = datalist_db_encoding;
 ?>
+CHILD_TABLE = 'ChildTable';
 <script>
 	<?php echo $current_table; ?>GetChildrenRecordsList = function(command){
 		var param = {
-			ChildTable: "<?php echo $parameters['ChildTable']; ?>",
+			ChildTable: "<?php echo $parameters[CHILD_TABLE]; ?>",
 			ChildLookupField: "<?php echo $parameters['ChildLookupField']; ?>",
 			SelectedID: "<?php echo addslashes($parameters['SelectedID']); ?>",
 			Page: <?php echo addslashes($parameters['Page']); ?>,
