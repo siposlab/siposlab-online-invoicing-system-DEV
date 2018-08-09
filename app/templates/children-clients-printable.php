@@ -12,7 +12,7 @@ CHILD_TABLE = 'ChildTable';
 			ChildLookupField: "<?php echo $parameters['ChildLookupField']; ?>",
 			SelectedID: "<?php echo addslashes($parameters['SelectedID']); ?>",
 			Page: <?php echo addslashes($parameters['Page']); ?>,
-			SortBy: <?php echo ($parameters['SortBy'] === false ? '""' : $parameters['SortBy']); ?>,
+			SortBy: <?php echo $parameters['SortBy'] === false ? '""' : $parameters['SortBy']; ?>,
 			SortDirection: '<?php echo $parameters['SortDirection']; ?>',
 			AutoClose: <?php echo $config['auto-close'] ? 'true' : 'false'; ?>
 		};
