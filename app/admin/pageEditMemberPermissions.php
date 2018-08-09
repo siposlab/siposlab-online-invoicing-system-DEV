@@ -29,7 +29,7 @@
 	if(isset($_POST['saveChanges'])){
 		// validate data
 		foreach ($tables as $t => $tc){
-			eval("
+		    ("
 					\${$t}_insert = checkPermissionVal('{$t}_insert');
 					\${$t}_view = checkPermissionVal('{$t}_view');
 					\${$t}_edit = checkPermissionVal('{$t}_edit');
