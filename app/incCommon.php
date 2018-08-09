@@ -673,7 +673,7 @@
 
 		if(is_array($the_data_to_pass_to_the_view)){
 			foreach($the_data_to_pass_to_the_view as $k => $v)
-				$$k = $v;
+				$k = $v;
 		}
 		unset($the_data_to_pass_to_the_view, $k, $v);
 
