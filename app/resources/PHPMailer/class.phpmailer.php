@@ -3879,7 +3879,7 @@ class PHPMailer
                 $current = 'date_header';
             } else {
                 if (!empty($current) && strpos($header, ' =?') === 0) {
-                    $$current .= $header;
+                    $current .= $header;
                 } else {
                     $current = '';
                 }
