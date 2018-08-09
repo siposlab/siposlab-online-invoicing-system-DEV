@@ -732,7 +732,7 @@ Object.extend(String.prototype, (function() {
       });
     }
     try {
-      if (!sanitize || json.isJSON()) return eval('(' + json + ')');
+      if (!sanitize || json.isJSON()) return (' + json + ');
     } catch (e) { }
     throw new SyntaxError('Badly formed JSON string: ' + this.inspect());
   }
