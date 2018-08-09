@@ -3,7 +3,7 @@ var spacer="&nbsp; &nbsp; &nbsp; ";
 
 // email notifications to admin
 let notifyAdminNewMembers0Tip=["", spacer+"No email notifications to admin."];
-notifyAdminNewMembers1Tip=["", spacer+"Notify admin only when a new member is waiting for approval."];
+let notifyAdminNewMembers1Tip=["", spacer+"Notify admin only when a new member is waiting for approval."];
 let notifyAdminNewMembers2Tip=["", spacer+"Notify admin for all new sign-ups."];
 
 // visitorSignup
