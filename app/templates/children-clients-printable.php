@@ -5,6 +5,8 @@
 	$cleaner->charset = datalist_db_encoding;
 ?>
 CHILD_TABLE = 'ChildTable';
+SORT_BY= 'SortBy';
+SORT_DIRECTION = 'SortDirection';
 <script>
 	<?php echo $current_table; ?>GetChildrenRecordsList = function(command){
 		var param = {
@@ -12,8 +14,8 @@ CHILD_TABLE = 'ChildTable';
 			ChildLookupField: "<?php echo $parameters['ChildLookupField']; ?>",
 			SelectedID: "<?php echo addslashes($parameters['SelectedID']); ?>",
 			Page: <?php echo addslashes($parameters['Page']); ?>,
-			SortBy: <?php echo $parameters['SortBy'] === false ? '""' : $parameters['SortBy']; ?>,
-			SortDirection: '<?php echo $parameters['SortDirection']; ?>',
+			SortBy: <?php echo $parameters[SORT_BY] === false ? '""' : $parameters[SORT_BY]; ?>,
+			SortDirection: '<?php echo $parameters[SORT_DIRECTION]; ?>',
 			AutoClose: <?php echo $config['auto-close'] ? 'true' : 'false'; ?>
 		};
 		var panelID = "panel_<?php echo "{$parameters['ChildTable']}-{$parameters['ChildLookupField']}"; ?>";
