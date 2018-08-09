@@ -631,7 +631,7 @@ Object.extend(String.prototype, (function() {
   }
 
   function evalScripts() {
-    return this.extractScripts().map(function(script) { return eval(script); });
+    return this.extractScripts().map(function(script) { return script; });
   }
 
   function escapeHTML() {
