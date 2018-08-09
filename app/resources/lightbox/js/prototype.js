@@ -5151,7 +5151,7 @@ var Expr = Sizzle.selectors = {
 				node = elem;
 
 			switch ( type ) {
-				case "only":
+				case "only": break;
 				case "first":
 					while ( (node = node.previousSibling) )	 {
 						if ( node.nodeType === 1 ) {
@@ -5164,15 +5164,19 @@ var Expr = Sizzle.selectors = {
 					}
 
 					node = elem;
+					break;
 
 				case "last":
 					while ( (node = node.nextSibling) )	 {
 						if ( node.nodeType === 1 ) {
 							return false;
+							break;
 						}
 					}
 
 					return true;
+					break;
+
 
 				case "nth":
 					var first = match[2],
@@ -5180,6 +5184,7 @@ var Expr = Sizzle.selectors = {
 
 					if ( first === 1 && last === 0 ) {
 						return true;
+						break;
 					}
 
 					var doneName = match[0],
@@ -5205,6 +5210,9 @@ var Expr = Sizzle.selectors = {
 					} else {
 						return ( diff % first === 0 && diff / first >= 0 );
 					}
+					 break;
+                default:
+                    break;
 			}
 		},
 
