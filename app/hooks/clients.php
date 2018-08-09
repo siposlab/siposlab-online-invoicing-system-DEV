@@ -1,12 +1,12 @@
 <?php
 	// For help on using hooks, please refer to http://bigprof.com/appgini/help/working-with-generated-web-database-application/hooks
 
-	function clients_init(&$options, $memberInfo, &$args){
+	function clients_init(&$options, &$args){
 
 		return TRUE;
 	}
 
-	function clients_header($contentType, $memberInfo, &$args){
+	function clients_header($contentType, &$args){
 		$header='';
 
 		switch($contentType){
@@ -14,9 +14,6 @@
 				$header='';
 				break;
 
-			case 'detailview':
-				$header='';
-				break;
 
 			case 'tableview+detailview':
 				$header='';
@@ -42,7 +39,7 @@
 		return $header;
 	}
 
-	function clients_footer($contentType, $memberInfo, &$args){
+	function clients_footer($contentType, &$args){
 		$footer='';
 
 		switch($contentType){
@@ -77,40 +74,40 @@
 		return $footer;
 	}
 
-	function clients_before_insert(&$data, $memberInfo, &$args){
+	function clients_before_insert(&$data, &$args){
 
 		return TRUE;
 	}
 
-	function clients_after_insert($data, $memberInfo, &$args){
+	function clients_after_insert($data, &$args){
 
 		return TRUE;
 	}
 
-	function clients_before_update(&$data, $memberInfo, &$args){
+	function clients_before_update(&$data, &$args){
 
 		return TRUE;
 	}
 
-	function clients_after_update($data, $memberInfo, &$args){
+	function clients_after_update($data, &$args){
 
 		return TRUE;
 	}
 
-	function clients_before_delete($selectedID, &$skipChecks, $memberInfo, &$args){
+	function clients_before_delete($selectedID, &$skipChecks, &$args){
 
 		return TRUE;
 	}
 
-	function clients_after_delete($selectedID, $memberInfo, &$args){
+	function clients_after_delete($selectedID, &$args){
 
 	}
 
-	function clients_dv($selectedID, $memberInfo, &$html, &$args){
+	function clients_dv($selectedID, &$html, &$args){
 
 	}
 
-	function clients_csv($query, $memberInfo, $args){
+	function clients_csv($query, $args){
 
 		return $query;
 	}
