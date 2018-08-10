@@ -38,7 +38,7 @@
 
 		return $footer;
 	}
-	
+
 
 	function items_csv($query){
 
