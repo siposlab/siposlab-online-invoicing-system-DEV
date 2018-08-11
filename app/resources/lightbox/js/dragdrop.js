@@ -340,9 +340,8 @@ var Draggable = Class.create({
       this.stopScrolling();
 
       var p;
-      if (this.options.scroll == window) {
-        with(this._getWindowScroll(this.options.scroll)) { p = [ left, top, left+width, top+height ]; }
-      } else {
+      if (this.options.scroll == window)
+      {
         p = Position.page(this.options.scroll).toArray();
         p[0] += this.options.scroll.scrollLeft + Position.deltaX;
         p[1] += this.options.scroll.scrollTop + Position.deltaY;
@@ -350,10 +349,6 @@ var Draggable = Class.create({
         p.push(p[1]+this.options.scroll.offsetHeight);
       }
       var speed = [0,0];
-      if(pointer[0] < (p[0]+this.options.scrollSensitivity)) speed[0] = pointer[0]-(p[0]+this.options.scrollSensitivity);
-      if(pointer[1] < (p[1]+this.options.scrollSensitivity)) speed[1] = pointer[1]-(p[1]+this.options.scrollSensitivity);
-      if(pointer[0] > (p[2]-this.options.scrollSensitivity)) speed[0] = pointer[0]-(p[2]-this.options.scrollSensitivity);
-      if(pointer[1] > (p[3]-this.options.scrollSensitivity)) speed[1] = pointer[1]-(p[3]-this.options.scrollSensitivity);
       this.startScrolling(speed);
     }
 
@@ -483,14 +478,14 @@ var Draggable = Class.create({
     var current = new Date();
     var delta = current - this.lastScrolled;
     this.lastScrolled = current;
-    if(this.options.scroll == window) {
-      with (this._getWindowScroll(this.options.scroll)) {
+    if(this.options.scroll == window)
+      {
         if (this.scrollSpeed[0] || this.scrollSpeed[1]) {
           var d = delta / 1000;
           this.options.scroll.scrollTo( left + d*this.scrollSpeed[0], top + d*this.scrollSpeed[1] );
         }
       }
-    } else {
+     else {
       this.options.scroll.scrollLeft += this.scrollSpeed[0] * delta / 1000;
       this.options.scroll.scrollTop  += this.scrollSpeed[1] * delta / 1000;
     }
@@ -514,7 +509,7 @@ var Draggable = Class.create({
 
   _getWindowScroll: function(w) {
     var T, L, W, H;
-    with (w.document) {
+     {
       if (w.document.documentElement && documentElement.scrollTop) {
         T = documentElement.scrollTop;
         L = documentElement.scrollLeft;
@@ -737,7 +732,6 @@ var Sortable = {
       Sortable.mark(dropon, 'after');
       var nextElement = dropon.nextSibling || null;
       if(nextElement != element) {
-        var oldParentNode = element.parentNode;
         element.style.visibility = "hidden"; // fix gecko rendering
         dropon.parentNode.insertBefore(element, nextElement);
         if(dropon.parentNode!=oldParentNode)

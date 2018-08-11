@@ -2,109 +2,28 @@
 
 // For help on using hooks, please refer to http://bigprof.com/appgini/help/working-with-generated-web-database-application/hooks
 
-function invoice_items_init(&$options, $memberInfo, &$args) {
+function invoice_items_init() {
 
 	return TRUE;
 }
 
-function invoice_items_header($contentType, $memberInfo, &$args) {
+function invoice_items_header($contentType) {
 	$header = '';
 
-	switch ($contentType) {
-		case 'tableview':
-			$header = '';
-			break;
+	if ($contentType) {
 
-		case 'detailview':
 			$header = '';
-			break;
-
-		case 'tableview+detailview':
-			$header = '';
-			break;
-
-		case 'print-tableview':
-			$header = '';
-			break;
-
-		case 'print-detailview':
-			$header = '';
-			break;
-
-		case 'filters':
-			$header = '';
-			break;
 	}
 
 	return $header;
 }
-
-function invoice_items_footer($contentType, $memberInfo, &$args) {
-	$footer = '';
-
-	switch ($contentType) {
-		case 'tableview':
-			$footer = '';
-			break;
-
-		case 'detailview':
-			$footer = '';
-			break;
-
-		case 'tableview+detailview':
-			$footer = '';
-			break;
-
-		case 'print-tableview':
-			$footer = '';
-			break;
-
-		case 'print-detailview':
-			$footer = '';
-			break;
-
-		case 'filters':
-			$footer = '';
-			break;
-	}
-
-	return $footer;
-}
-
-function invoice_items_before_insert(&$data, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoice_items_after_insert($data, $memberInfo, &$args) {
-
-
-	return TRUE;
-}
-
-function invoice_items_before_update(&$data, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoice_items_after_update($data, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoice_items_before_delete($selectedID, &$skipChecks, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoice_items_after_delete($selectedID, $memberInfo, &$args) {
-	
-}
-
-function invoice_items_dv($selectedID, $memberInfo, &$html, &$args) {
+function invoice_items_dv($selectedID, &$html) {
 	global $Translation;
-	if (isset($_REQUEST['dvprint_x']))
-		return;
+	if (isset($_REQUEST['dvprint_x'])){
+
+        return;
+    }
+
 
 	ob_start();
 	?>
@@ -134,7 +53,7 @@ function invoice_items_dv($selectedID, $memberInfo, &$html, &$args) {
 	$html .= $form_code;
 }
 
-function invoice_items_csv($query, $memberInfo, $args) {
+function invoice_items_csv($query) {
 
 	return $query;
 }

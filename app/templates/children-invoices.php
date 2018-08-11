@@ -1,4 +1,4 @@
-<?php if(!isset($Translation)) die('No direct access allowed.'); ?>
+<?php if(!isset($Translation)){ die('No direct access allowed.');} ?>
 <?php $current_table = 'invoices'; ?>
 <?php
 	$cleaner = new CI_Input();
@@ -6,15 +6,7 @@
 ?>
 <script>
 	<?php echo $current_table; ?>GetChildrenRecordsList = function(command){
-		var param = {
-			ChildTable: "<?php echo $parameters['ChildTable']; ?>",
-			ChildLookupField: "<?php echo $parameters['ChildLookupField']; ?>",
-			SelectedID: "<?php echo addslashes($parameters['SelectedID']); ?>",
-			Page: <?php echo addslashes($parameters['Page']); ?>,
-			SortBy: <?php echo ($parameters['SortBy'] === false ? '""' : $parameters['SortBy']); ?>,
-			SortDirection: '<?php echo $parameters['SortDirection']; ?>',
-			AutoClose: <?php echo ($config['auto-close'] ? 'true' : 'false'); ?>
-		};
+
 		var panelID = "panel_<?php echo "{$parameters['ChildTable']}-{$parameters['ChildLookupField']}"; ?>";
 		var mbWidth = window.innerWidth * 0.9;
 		var mbHeight = window.innerHeight * 0.8;
@@ -24,7 +16,7 @@
 		switch(command.Verb){
 			case 'sort': /* order by given field index in 'SortBy' */
 				post("parent-children.php", {
-					ChildTable: param.ChildTable,
+				    CHILDTABLE: param.ChildTable,
 					ChildLookupField: param.ChildLookupField,
 					SelectedID: param.SelectedID,
 					Page: param.Page,
@@ -101,7 +93,8 @@
 						<?php if($config['open-detail-view-on-click']){ ?>
 							<th>&nbsp;</th>
 						<?php } ?>
-						<?php if(is_array($config['display-fields'])) foreach($config['display-fields'] as $fieldIndex => $fieldLabel){ ?>
+						<?php if(is_array($config['display-fields'])) {foreach($config['display-fields'] as $fieldIndex => $fieldLabel)
+						{ ?>
 							<th 
 								<?php if($config['sortable-fields'][$fieldIndex]){ ?>
 									onclick="<?php echo $current_table; ?>GetChildrenRecordsList({
@@ -119,7 +112,7 @@
 									<i class="glyphicon glyphicon-sort-by-attributes text-warning"></i>
 								<?php } ?>
 							</th>
-						<?php } ?>
+						<?php } ?>}
 					</tr>
 				</thead>
 				<tbody>
