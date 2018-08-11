@@ -24,105 +24,35 @@ function load_invoice_templates(){
 	file_put_contents($options, implode(';;', $list));
 }
 
-function invoices_init(&$options, $memberInfo, &$args) {
+function invoices_init() {
 	load_invoice_templates();
 	return TRUE;
 }
 
-function invoices_header($contentType, $memberInfo, &$args) {
+function invoices_header($contentType) {
 	$header = '';
 
-	switch ($contentType) {
-		case 'tableview':
-			$header = '';
-			break;
+	if ($contentType) {
 
-		case 'detailview':
 			$header = '';
-			break;
 
-		case 'tableview+detailview':
-			$header = '';
-			break;
-
-		case 'print-tableview':
-			$header = '';
-			break;
-
-		case 'print-detailview':
-			$header = '';
-			break;
-
-		case 'filters':
-			$header = '';
-			break;
 	}
 
 	return $header;
 }
 
-function invoices_footer($contentType, $memberInfo, &$args) {
+function invoices_footer($contentType) {
 	$footer = '';
 
-	switch ($contentType) {
-		case 'tableview':
-			$footer = '';
-			break;
+	if ($contentType) {
 
-		case 'detailview':
 			$footer = '';
-			break;
-
-		case 'tableview+detailview':
-			$footer = '';
-			break;
-
-		case 'print-tableview':
-			$footer = '';
-			break;
-
-		case 'print-detailview':
-			$footer = '';
-			break;
-
-		case 'filters':
-			$footer = '';
-			break;
 	}
 
 	return $footer;
 }
 
-function invoices_before_insert(&$data, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoices_after_insert($data, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoices_before_update(&$data, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoices_after_update($data, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoices_before_delete($selectedID, &$skipChecks, $memberInfo, &$args) {
-
-	return TRUE;
-}
-
-function invoices_after_delete($selectedID, $memberInfo, &$args) {
-	
-}
-
-function invoices_dv($selectedID, $memberInfo, &$html, &$args) {
+function invoices_dv(&$html) {
 	global $Translation;
 	
 	/* define all Translation strings needed by js code */
@@ -139,7 +69,7 @@ function invoices_dv($selectedID, $memberInfo, &$html, &$args) {
 	$html .= $form_code;
 }
 
-function invoices_csv($query, $memberInfo, $args) {
+function invoices_csv($query) {
 
 	return $query;
 }
