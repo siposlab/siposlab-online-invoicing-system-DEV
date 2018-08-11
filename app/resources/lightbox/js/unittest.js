@@ -34,9 +34,7 @@ Event.simulateMouse = function(element, eventName) {
   this.mark.style.height = "5px;";
   this.mark.style.borderTop = "1px solid red;";
   this.mark.style.borderLeft = "1px solid red;";
-  
-  if(this.step)
-    alert('['+new Date().getTime().toString()+'] '+eventName+'/'+Test.Unit.inspect(options));
+
   
   $(element).dispatchEvent(oEvent);
 };
@@ -179,13 +177,9 @@ Test.Unit.Runner.prototype = {
   parseTestsQueryParameter: function(){
     if (window.location.search.parseQuery()["tests"]){
         return window.location.search.parseQuery()["tests"].split(',');
-    };
-  },
-  // Returns:
-  //  "ERROR" if there was an error,
-  //  "FAILURE" if there was a failure, or
-  //  "SUCCESS" if there was neither
-  getResult: function() {
+
+  getResult: functio()
+        {
     var hasFailure = false;
     for(var i=0;i<this.tests.length;i++) {
       if (this.tests[i].errors > 0) {
@@ -233,7 +227,6 @@ Test.Unit.Runner.prototype = {
     var assertions = 0;
     var failures = 0;
     var errors = 0;
-    var messages = [];
     for(var i=0;i<this.tests.length;i++) {
       assertions +=   this.tests[i].assertions;
       failures   +=   this.tests[i].failures;
@@ -430,14 +423,7 @@ Test.Unit.Assertions.prototype = {
   assertElementMatches: function(element, expression) {
     this.assertElementsMatch([element], expression);
   },
-  benchmark: function(operation, iterations) {
-    var startAt = new Date();
-    (iterations || 1).times(operation);
-    var timeTaken = ((new Date())-startAt);
-    this.info((arguments[2] || 'Operation') + ' finished ' + 
-       iterations + ' iterations in ' + (timeTaken/1000)+'s' );
-    return timeTaken;
-  },
+
   _isVisible: function(element) {
     element = $(element);
     if(!element.parentNode) return true;
@@ -472,9 +458,6 @@ Object.extend(Object.extend(Test.Unit.Testcase.prototype, Test.Unit.Assertions.p
     if(typeof test == 'string') {
       test = test.gsub(/(\.should[^\(]+\()/,'#{0}this,');
       test = test.gsub(/(\.should[^\(]+)\(this,\)/,'#{1}(this)');
-      this.test = function() {
-        eval('with(this){'+test+'}');
-      }
     } else {
       this.test = test || function() {};
     }
@@ -546,7 +529,7 @@ Test.context = function(name, spec, log){
   
   var compiledSpec = {};
   var titles = {};
-  for(specName in spec) {
+  for(let specName in spec) {
     switch(specName){
       case "setup":
       case "teardown":
