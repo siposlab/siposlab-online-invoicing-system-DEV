@@ -132,7 +132,7 @@ function stm(t,s) {
 			Alpha:s[22],
 			ShadowType:s[23].toLowerCase(),
 			ShadowColor:s[24],
-			Width:parseInt(eval(obj+iw)+3+sbw)
+			Width:parseInt((obj+iw)+3+sbw)
 		}
 		if(ie4) {
 			TipLayer.style.width = s[14]
@@ -146,12 +146,12 @@ function stm(t,s) {
 
 function MoveTip(e) {
 	if(move) {
-		var X,Y,MouseX = eval(mx),MouseY = eval(my); tbody.Height = parseInt(eval(obj+ih)+3)
-		tbody.wiw = parseInt(eval(ww+"+"+scl)); tbody.wih = parseInt(eval(wh+"+"+sct))
+		var X,Y,MouseX = (mx),MouseY = (my); tbody.Height = parseInt((obj+ih)+3)
+		tbody.wiw = parseInt((ww+"+"+scl)); tbody.wih = parseInt((wh+"+"+sct))
 		switch(tbody.Pos) {
 			case "left" : X=MouseX-tbody.Width-tbody.Xpos; Y=MouseY+tbody.Ypos; break
 			case "center": X=MouseX-(tbody.Width/2); Y=MouseY+tbody.Ypos; break
-			case "float": X=tbody.Xpos+eval(scl); Y=tbody.Ypos+eval(sct); break
+			case "float": X=tbody.Xpos+scl; Y=tbody.Ypos+(sct); break
 			case "fixed": X=tbody.Xpos; Y=tbody.Ypos; break
 			default: X=MouseX+tbody.Xpos; Y=MouseY+tbody.Ypos
 		}
@@ -162,7 +162,7 @@ function MoveTip(e) {
 			else Y = MouseY-tbody.Height
 		}
 		if(X<0) X=0
-		eval(obj+sl+"=X+PX;"+obj+st+"=Y+PX")
+
 		ViewTip()
 	}
 }
@@ -190,32 +190,32 @@ function ViewTip() {
 	  			TipLayer.filters[30].color = tbody.ShadowColor
 			}
 			if(applyTrans||advFilters) {
-				eval(obj+sv+hl)
+				
 	  			if(applyTrans) TipLayer.filters[0].transition = tbody.Transition
 	  			TipLayer.filters[which].duration = tbody.Duration
 	  			TipLayer.filters[which].apply()
 			}
 		}
- 		eval(obj+sv+vl)
+
 		if(cssFilters&&FiltersEnabled&&(applyTrans||advFilters)) TipLayer.filters[which].play()
 		if(hs == "sticky") move=0
   	}
 }
 
 function stickyhide() {
-	eval(HideTip)
+
 }
 
 function ReloadTip() {
-	 if(nn4&&(evlw!=eval(ww)||evlh!=eval(wh))) location.reload()
-	 else if(hs == "sticky") eval(HideTip)
+	 if(nn4&&(evlw!=ww||evlh!=wh)) location.reload()
+	 else if(hs == "sticky") {}
 }
 
 function htm() {
 	if(sNav) {
 		if(hs!="keep") {
 			move=0;
-			if(hs!="sticky") eval(HideTip)
+			if(hs!="sticky") {}
 		}
 	}
 }
