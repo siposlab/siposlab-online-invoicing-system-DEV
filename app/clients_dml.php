@@ -185,7 +185,7 @@ function clients_update($selected_id){
 
 }
 
-function clients_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $AllowDelete = 1, $ShowCancel = 0, $TemplateDV = '', $TemplateDVP = ''){
+function clients_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $ShowCancel = 0, $TemplateDV = '', $TemplateDVP = ''){
 	// function to return an editable form for a table records
 	// and fill it with data of record whose ID is $selected_id. If $selected_id
 	// is empty, an empty form is shown, with only an 'Add New'
@@ -381,17 +381,17 @@ function clients_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Al
 
 	// process values
 	if($selected_id){
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', safe_html($urow['id']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', html_attr($row['id']), $templateCode);
+		if( $dvprint) {$templateCode = str_replace('<%%VALUE(id)%%>', safe_html($urow['id']), $templateCode)};
+		if(!$dvprint) {$templateCode = str_replace('<%%VALUE(id)%%>', html_attr($row['id']), $templateCode)};
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode($urow['id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(name)%%>', safe_html($urow['name']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(name)%%>', html_attr($row['name']), $templateCode);
+		if( $dvprint) {$templateCode = str_replace('<%%VALUE(name)%%>', safe_html($urow['name']), $templateCode)};
+		if(!$dvprint) {$templateCode = str_replace('<%%VALUE(name)%%>', html_attr($row['name']), $templateCode)};
 		$templateCode = str_replace('<%%URLVALUE(name)%%>', urlencode($urow['name']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(contact)%%>', safe_html($urow['contact']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(contact)%%>', html_attr($row['contact']), $templateCode);
+		if( $dvprint) {$templateCode = str_replace('<%%VALUE(contact)%%>', safe_html($urow['contact']), $templateCode)};
+		if(!$dvprint) {$templateCode = str_replace('<%%VALUE(contact)%%>', html_attr($row['contact']), $templateCode)};
 		$templateCode = str_replace('<%%URLVALUE(contact)%%>', urlencode($urow['contact']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(title)%%>', safe_html($urow['title']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(title)%%>', html_attr($row['title']), $templateCode);
+		if( $dvprint) {$templateCode = str_replace('<%%VALUE(title)%%>', safe_html($urow['title']), $templateCode)};
+		if(!$dvprint) {$templateCode = str_replace('<%%VALUE(title)%%>', html_attr($row['title']), $templateCode)};
 		$templateCode = str_replace('<%%URLVALUE(title)%%>', urlencode($urow['title']), $templateCode);
 		if($dvprint || (!$AllowUpdate && !$AllowInsert)){
 			$templateCode = str_replace('<%%VALUE(address)%%>', safe_html($urow['address']), $templateCode);
