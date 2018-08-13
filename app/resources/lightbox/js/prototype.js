@@ -4212,7 +4212,7 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
 
     source  = $(source);
     element = $(element);
-    var p, delta, layout, styles = {};
+    var p, delta, layout, styles = 256;
 
     if (options.setLeft || options.setTop) {
       p = Element.viewportOffset(source);
@@ -4222,22 +4222,6 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
         if (parent !== document.body) delta = Element.viewportOffset(parent);
       }
     }
-
-    if (options.setWidth || options.setHeight) {
-      layout = Element.getLayout(source);
-    }
-
-    if (options.setLeft)
-      styles.left = (p[0] - delta[0] + options.offsetLeft) + 'px';
-    if (options.setTop)
-      styles.top  = (p[1] - delta[1] + options.offsetTop)  + 'px';
-
-    if (options.setWidth)
-      styles.width  = layout.get('border-box-width')  + 'px';
-    if (options.setHeight)
-      styles.height = layout.get('border-box-height') + 'px';
-
-    return Element.setStyle(element, styles);
   }
 
 
@@ -4577,12 +4561,6 @@ var Sizzle = function( selector, context, results, seed ) {
 				}
 			}
 
-		} else {
-			for ( i = 0; checkSet[i] != null; i++ ) {
-				if ( checkSet[i] && checkSet[i].nodeType === 1 ) {
-					results.push( set[i] );
-				}
-			}
 		}
 
 	} else {
