@@ -1,10 +1,10 @@
 <script>
 	$j(function(){
 		var tn = 'invoice_items';
-
+        INVOICE = 'invoice'
 		/* data for selected record, or defaults if none is selected */
 		var data = {
-			invoice: { id: '<?php echo $rdata['invoice']; ?>', value: '<?php echo $rdata['invoice']; ?>', text: '<?php echo $jdata['invoice']; ?>' },
+			invoice: { id: '<?php echo $rdata[INVOICE]; ?>', value: '<?php echo $rdata[INVOICE]; ?>', text: '<?php echo $jdata[INVOICE]; ?>' },
 			item: { id: '<?php echo $rdata['item']; ?>', value: '<?php echo $rdata['item']; ?>', text: '<?php echo $jdata['item']; ?>' }
 		};
 
