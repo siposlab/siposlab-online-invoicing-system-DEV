@@ -1838,15 +1838,7 @@ Ajax.Request = Class.create(Ajax.Base, {
       return this.transport.getResponseHeader(name) || null;
     } catch (e) { return null; }
   },
-
-  evalResponse: function() {
-    try {
-      return eval((this.transport.responseText || '').unfilterJSON());
-    } catch (e) {
-      this.dispatchException(e);
-    }
-  },
-
+    
   dispatchException: function(exception) {
     (this.options.onException || Prototype.emptyFunction)(this, exception);
     Ajax.Responders.dispatch('onException', this, exception);
