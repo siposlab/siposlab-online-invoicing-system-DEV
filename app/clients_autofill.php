@@ -15,15 +15,12 @@
 
 	$mfk=$_GET['mfk'];
 	$id=makeSafe($_GET['id']);
-	$rnd1=intval($_GET['rnd1']); if(!$rnd1) $rnd1='';
+	$rnd1=intval($_GET['rnd1']); if(!$rnd1){$rnd1='';}
 
 	if(!$mfk){
 		die('// No js code available!');
 	}
 
-	switch($mfk){
-
-
-	}
+	
 
 ?>
