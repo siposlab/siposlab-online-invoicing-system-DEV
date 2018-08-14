@@ -18,7 +18,7 @@ SORT_DIRECTION = 'SortDirection';
 			SortDirection: '<?php echo $parameters[SORT_DIRECTION]; ?>',
 			AutoClose: <?php echo $config['auto-close'] ? 'true' : 'false'; ?>
 		};
-		var panelID = "panel_<?php echo "{$parameters['ChildTable']}-{$parameters['ChildLookupField']}"; ?>";
+		var panelID = "panel_<?php echo "{$parameters['ChildLookupField']}"; ?>";
 		var mbWidth = window.innerWidth * 0.9;
 		var mbHeight = window.innerHeight * 0.8;
 		if(mbWidth > 1000){ mbWidth = 1000; }
@@ -70,38 +70,14 @@ SORT_DIRECTION = 'SortDirection';
 	<div class="col-xs-12 col-md-12">
 
 		<div class="page-header"><h1>
-			<?php echo ($config['table-icon'] ? '<img src="' . $config['table-icon'] . '">' : ''); ?>
+			<?php echo $config['table-icon'] ? '<img src="' . $config['table-icon'] . '">' : ''; ?>
 			<?php echo $config['tab-label']; ?>
 		</h1></div>
 
 
 		<div class="table-responsive">
 			<table class="table table-striped table-hover table-condensed table-bordered">
-				<thead>
-					<tr>
-						<?php if(is_array($config['display-fields'])) foreach($config['display-fields'] as $fieldIndex => $fieldLabel){ ?>
-							<th 
-								<?php if($config['sortable-fields'][$fieldIndex]){ ?>
-									onclick="<?php echo $current_table; ?>GetChildrenRecordsList({
-										Verb: 'sort', 
-										SortBy: <?php echo $fieldIndex; ?>, 
-										SortDirection: '<?php echo ($parameters['SortBy'] == $fieldIndex && $parameters['SortDirection'] == 'asc' ? 'desc' : 'asc'); ?>'
-									});" 
-									style="cursor: pointer;" 
-								<?php } ?>
-								class="<?php echo "{$current_table}-{$config['display-field-names'][$fieldIndex]}"; ?>">
-								<?php echo $fieldLabel; ?>
-								<?php if($parameters['SortBy'] == $fieldIndex && $parameters['SortDirection'] == 'desc'){ ?>
-									<i class="glyphicon glyphicon-sort-by-attributes-alt text-warning"></i>
-								<?php }elseif($parameters['SortBy'] == $fieldIndex && $parameters['SortDirection'] == 'asc'){ ?>
-									<i class="glyphicon glyphicon-sort-by-attributes text-warning"></i>
-								<?php } ?>
-							</th>
-						<?php } ?>
-					</tr>
-				</thead>
 				<tbody>
-					<?php if(is_array($records)) foreach($records as $pkValue => $record){ ?>
 					<tr>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][1]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][1]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[1]); ?></td>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][2]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][2]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[2]); ?></td>
