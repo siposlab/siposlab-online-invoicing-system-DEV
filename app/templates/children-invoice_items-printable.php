@@ -1,4 +1,4 @@
-<?php if(!isset($Translation)) die('No direct access allowed.'); ?>
+
 <?php $current_table = 'invoice_items'; ?>
 <?php
 	$cleaner = new CI_Input();
@@ -7,13 +7,13 @@
 <script>
 	<?php echo $current_table; ?>GetChildrenRecordsList = function(command){
 		var param = {
-			ChildTable: "<?php echo $parameters['ChildTable']; ?>",
+
 			ChildLookupField: "<?php echo $parameters['ChildLookupField']; ?>",
 			SelectedID: "<?php echo addslashes($parameters['SelectedID']); ?>",
 			Page: <?php echo addslashes($parameters['Page']); ?>,
-			SortBy: <?php echo ($parameters['SortBy'] === false ? '""' : $parameters['SortBy']); ?>,
-			SortDirection: '<?php echo $parameters['SortDirection']; ?>',
-			AutoClose: <?php echo ($config['auto-close'] ? 'true' : 'false'); ?>
+
+
+
 		};
 		var panelID = "panel_<?php echo "{$parameters['ChildTable']}-{$parameters['ChildLookupField']}"; ?>";
 		var mbWidth = window.innerWidth * 0.9;
@@ -67,7 +67,7 @@
 	<div class="col-xs-12 col-md-12">
 
 		<div class="page-header"><h1>
-			<?php echo ($config['table-icon'] ? '<img src="' . $config['table-icon'] . '">' : ''); ?>
+			<?php echo $config['table-icon'] ? '<img src="' . $config['table-icon'] . '">' : ''; ?>
 			<?php echo $config['tab-label']; ?>
 		</h1></div>
 
@@ -76,17 +76,17 @@
 			<table class="table table-striped table-hover table-condensed table-bordered">
 				<thead>
 					<tr>
-						<?php if(is_array($config['display-fields'])) foreach($config['display-fields'] as $fieldIndex => $fieldLabel){ ?>
-							<th 
+
+							<th
 								<?php if($config['sortable-fields'][$fieldIndex]){ ?>
 									onclick="<?php echo $current_table; ?>GetChildrenRecordsList({
-										Verb: 'sort', 
-										SortBy: <?php echo $fieldIndex; ?>, 
-										SortDirection: '<?php echo ($parameters['SortBy'] == $fieldIndex && $parameters['SortDirection'] == 'asc' ? 'desc' : 'asc'); ?>'
-									});" 
-									style="cursor: pointer;" 
+										Verb: 'sort',
+										SortBy: <?php echo $fieldIndex; ?>,
+										SortDirection: '<?php echo $parameters['SortBy'] == $fieldIndex && $parameters['SortDirection'] == 'asc' ? 'desc' : 'asc'; ?>'
+									});"
+									style="cursor: pointer;"
 								<?php } ?>
-								class="<?php echo "{$current_table}-{$config['display-field-names'][$fieldIndex]}"; ?>">
+
 								<?php echo $fieldLabel; ?>
 								<?php if($parameters['SortBy'] == $fieldIndex && $parameters['SortDirection'] == 'desc'){ ?>
 									<i class="glyphicon glyphicon-sort-by-attributes-alt text-warning"></i>
@@ -98,9 +98,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php if(is_array($records)) foreach($records as $pkValue => $record){ ?>
+
 					<tr>
-						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][2]}"; ?>" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][2]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[2]); ?></td>
+
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][3]}"; ?> text-right" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][3]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[3]); ?></td>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][4]}"; ?> text-right" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][4]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[4]); ?></td>
 						<td class="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][5]}"; ?> text-right" id="<?php echo "{$parameters['ChildTable']}-{$config['display-field-names'][5]}-" . html_attr($record[$config['child-primary-key-index']]); ?>"><?php echo safe_html($record[5]); ?></td>
